@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  nav.navbar.navbar-expand.navbar-light.bg-light
+    a(href="/", aria-label="Enhancer").navbar-brand.mr-0.mr-md-2
+      img(src="images/enhance2.png", width="48", height="48")
+    .collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item
+          a.nav-link(href="/") Submit New
+        li.nav-item
+          a.nav-link(href="/") Track Status
+  h1= title
+  p Welcome to #{title}
+  form(action="/", method="POST")
+    input(name="logon", type="email", placeholder="Enter logon email" required)
+    input(name="attachment", type="file", maxlength=50 allow="text/*")
+    button(type="submit") Submit
