@@ -18,12 +18,12 @@ block content
     input(name="user", type="text", placeholder="Enter your name", required)
     br
     label(for="sel1") What needs enhancing?
-    select(id="sel1", required)
+    select(id="sel1", class="form-control", required)
       option Awesome Macro Tool
       option Super Cool Web Tool
       option General Configurations
     br
-    textarea(name="describe", rows="10", cols="50", placeholder="Please describe the enhancement", required)
+    textarea(name="describe", rows="10", class="form-control" placeholder="Please describe the enhancement", required)
     br
     label Please attach any supporting documents
     input(name="attachment", type="file", maxlength=50 allow="text/*")
