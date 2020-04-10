@@ -1,0 +1,1 @@
+Temporary storage place of enhancement submissions while database connectivity is established.
