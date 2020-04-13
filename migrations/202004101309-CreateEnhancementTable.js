@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => { // create a new table called 'enhancements'
     return queryInterface.createTable('Enhancements', {
