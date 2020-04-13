@@ -19,6 +19,8 @@ This contains the top js file that exports no modules. It implements the http se
 Contains the configs for sequelize that it needs to establish connection with the backend database.
 ### controllers
 Exports modules for responding to requests. Makes modular what otherwise would be programmed directly into the */routes* directory's method calls as callback functions.
+### docs
+Design documentation for the web form application.
 ### migrations
 Contains migrations made to the back-end DB performed by sequelize.
 ### models
