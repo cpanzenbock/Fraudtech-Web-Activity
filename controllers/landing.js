@@ -1,12 +1,13 @@
 var xmlify = require('object-to-xml')
 var fs = require('fs')
+const models = require('../models')
 
 exports.getLanding = function(req, res, next) {
   res.render('landing', { title: 'Enhancement Requests' });
 }
 
 exports.submitEnhancement = function(req, res, next) {
-  console.log("Enhancement Submission:", req.body);
+  // Prepare to write xml to file
   let timestamp = Date.now();
   console.log("Timestamp: ", timestamp);
   let options = {
@@ -14,8 +15,6 @@ exports.submitEnhancement = function(req, res, next) {
     spaces: 2
   };
   let xmltxt = xmlify(req.body);
-
-  // console.log("XML:", xmltxt);
 
   // Write xml to file
   fs.open("./submissions/" + timestamp + ".xml", 'w+', (err, fd) => {
@@ -27,9 +26,13 @@ exports.submitEnhancement = function(req, res, next) {
     }
   });
 
-  /* // Send xml as response back to browser
-  res.set('Content-Type', 'text/xml');
-  res.send(convert.json2xml(req.body));
-  */
-  res.redirect('/');
+  // Create row in database
+  return models.request.create({
+    user: req.body.logon,
+    feature: req.body.sel1,
+    description: req.body.describe,
+    usageNumbers: req.body.quantity,
+  }).then(enhancement => {
+    res.redirect('/status');
+  });
 }

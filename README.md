@@ -5,7 +5,7 @@ Self-teaching project. Simple web application for submitting enhancement request
 ### express
 Takes care of the implementation of a lot of standard web application features. Automatically allows server to handle multiple http requests asynchronously.
 ### pug
-Templating launguage "plug-in" that augments HTML making it easier to work with and make modular.
+Templating engine and language, acting as a kind of 'plug-in' that augments HTML making it easier to work with and make modular.
 ### sequelize
 Our application's Object-relational Mapper Software (ORM) for converting our JS objects into SQL queries.
 Makes use of 'pg' modules to communicate with a postgres database.
@@ -19,8 +19,10 @@ This contains the top js file that exports no modules. It implements the http se
 Contains the configs for sequelize that it needs to establish connection with the backend database.
 ### controllers
 Exports modules for responding to requests. Makes modular what otherwise would be programmed directly into the */routes* directory's method calls as callback functions.
+### docs
+Design documentation for the web form application.
 ### migrations
-Contains migrations made to the back-end DB performed by sequelize.
+Contains migrations for the back-end DB performed by sequelize. Migrations allow the program to adapt to changes in the DB Schema, letting us roll forward and back.
 ### models
 Contains models for interacting with the back-end DB by sequelize.
 ### node_modules

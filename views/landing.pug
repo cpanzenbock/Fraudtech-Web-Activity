@@ -1,31 +1,33 @@
 extends layout
 
 block content
-  nav.navbar.navbar-expand.navbar-light.bg-light
-    a(href="/", aria-label="Enhancer").navbar-brand.mr-0.mr-md-2
-      img(src="images/enhance2.png", width="48", height="48")
-    .collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-        li.nav-item
-          a.nav-link(href="/") Submit New
-        li.nav-item
-          a.nav-link(href="/") Track Status
-  h1= title
-  p Welcome to #{title}
+
+  div(class="d-flex justify-content-center")
+    h1= title
+  h2 Submit New
+  p Make requests for tooling and process improvements within Fraudtech
   form(action="/", method="POST")
-    input(name="logon", type="email", placeholder="Enter logon email", required)
+    label(for="logon") Enter logon email
     br
-    input(name="user", type="text", placeholder="Enter your name", required)
+    input(class="form-control", name="logon", id="logon", type="email", placeholder="user@servicesaustralia.com.au", required)
     br
     label(for="sel1") What needs enhancing?
-    select(id="sel1", class="form-control", required)
+    select(id="sel1", name="sel1" class="form-control", required)
+      option(value="", disabled, selected) Please choose a tool/process...
       option Awesome Macro Tool
       option Super Cool Web Tool
       option General Configurations
     br
-    textarea(name="describe", rows="10", class="form-control" placeholder="Please describe the enhancement", required)
+    textarea(id="describe", name="describe", rows="10", class="form-control" placeholder="Please describe the enhancement", required)
+    br
+    label(for="quantity") How many people will benefit from this enhancement?
+    br
+    input(class="form-control", type="number", id="quantity", name="quantity", min="1", max="100", required)
     br
     label Please attach any supporting documents
-    input(name="attachment", type="file", maxlength=50 allow="text/*")
     br
-    button(type="submit") Submit
+    input(class="form-control-file", name="attachment", type="file", maxlength=50 allow="text/*")
+    br
+    div(class="d-flex justify-content-center")
+      button(class="btn btn-primary", type="submit") Submit
+    br
