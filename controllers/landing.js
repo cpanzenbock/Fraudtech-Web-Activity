@@ -8,7 +8,6 @@ exports.getLanding = function(req, res, next) {
 
 exports.submitEnhancement = function(req, res, next) {
   // Prepare to write xml to file
-  console.log("Enhancement Submission:", req.body);
   let timestamp = Date.now();
   console.log("Timestamp: ", timestamp);
   let options = {
@@ -28,9 +27,12 @@ exports.submitEnhancement = function(req, res, next) {
   });
 
   // Create row in database
-  return models.Enhancement.create({
-    email: req.body.logon
+  return models.request.create({
+    user: req.body.logon,
+    feature: req.body.sel1,
+    description: req.body.describe,
+    usageNumbers: req.body.quantity,
   }).then(enhancement => {
-    res.redirect('/');
+    res.redirect('/status');
   });
 }

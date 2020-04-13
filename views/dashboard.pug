@@ -6,3 +6,12 @@ block content
     h1= title
   h2 Status Tracker
   p View the status of submitted tooling and process improvements within Fraudtech
+
+  if enhancements
+    h3 Listings
+    each e in enhancements
+      li #{e.user}
+  else
+    h3 No Listings Found
+  
+  br

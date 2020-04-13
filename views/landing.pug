@@ -9,27 +9,25 @@ block content
   form(action="/", method="POST")
     label(for="logon") Enter logon email
     br
-    input(name="logon", id="logon", type="email", placeholder="user@fraudtech.com", required)
-    br
+    input(class="form-control", name="logon", id="logon", type="email", placeholder="user@servicesaustralia.com.au", required)
     br
     label(for="sel1") What needs enhancing?
-    select(id="sel1", class="form-control", required)
+    select(id="sel1", name="sel1" class="form-control", required)
       option(value="", disabled, selected) Please choose a tool/process...
       option Awesome Macro Tool
       option Super Cool Web Tool
       option General Configurations
     br
-    textarea(name="describe", rows="10", class="form-control" placeholder="Please describe the enhancement", required)
+    textarea(id="describe", name="describe", rows="10", class="form-control" placeholder="Please describe the enhancement", required)
     br
     label(for="quantity") How many people will benefit from this enhancement?
     br
-    input(type="number", id="quantity", name="quantity", min="1", max="100", required)
-    br
+    input(class="form-control", type="number", id="quantity", name="quantity", min="1", max="100", required)
     br
     label Please attach any supporting documents
     br
-    input(name="attachment", type="file", maxlength=50 allow="text/*")
-    br
+    input(class="form-control-file", name="attachment", type="file", maxlength=50 allow="text/*")
     br
     div(class="d-flex justify-content-center")
       button(class="btn btn-primary", type="submit") Submit
+    br

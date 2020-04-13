@@ -22,7 +22,7 @@ Exports modules for responding to requests. Makes modular what otherwise would b
 ### docs
 Design documentation for the web form application.
 ### migrations
-Contains migrations made to the back-end DB performed by sequelize.
+Contains migrations for the back-end DB performed by sequelize. Migrations allow the program to adapt to changes in the DB Schema, letting us roll forward and back.
 ### models
 Contains models for interacting with the back-end DB by sequelize.
 ### node_modules
