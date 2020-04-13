@@ -5,7 +5,7 @@ Self-teaching project. Simple web application for submitting enhancement request
 ### express
 Takes care of the implementation of a lot of standard web application features. Automatically allows server to handle multiple http requests asynchronously.
 ### pug
-Templating launguage "plug-in" that augments HTML making it easier to work with and make modular.
+Templating engine and language, acting as a kind of 'plug-in' that augments HTML making it easier to work with and make modular.
 ### sequelize
 Our application's Object-relational Mapper Software (ORM) for converting our JS objects into SQL queries.
 Makes use of 'pg' modules to communicate with a postgres database.
