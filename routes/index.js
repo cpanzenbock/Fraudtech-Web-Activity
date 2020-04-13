@@ -5,6 +5,7 @@ let landing = require('../controllers/landing');
 
 /* GET home page. */
 router.get('/', landing.getLanding);
+/* POST home page form submission */
 router.post('/', landing.submitEnhancement);
 
 module.exports = router;
