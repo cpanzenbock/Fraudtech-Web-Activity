@@ -7,7 +7,9 @@ block content
   h2 Status Manager
   p Manage requests submitted for tooling and process improvements within Fraudtech
 
-  h3 Listings
+  div(class="float-right")
+    a.btn.btn-secondary.btn-lg.active(href="/0003:971.911.39.241/", role="button", aria-passed="true") View All
+  h3 Record
   table(class="table")
     thead
       tr
@@ -22,17 +24,16 @@ block content
         th(scope="col") updatedAt
         th(scope="col") (options)
     tbody
-      each e in enhancements
-        tr
-          td #{e.requestID}
-          td #{e.user}
-          td #{e.feature}
-          td #{e.stakeholders}
-          td #{e.engagements}
-          td #{e.description}
-          td #{e.usageNumbers}
-          td #{e.createdAt}
-          td #{e.updatedAt}
-          td
-            a.btn.btn-primary.btn-lg.active(href="/0003:971.911.39.241/" + e.requestID, role="button", aria-passed="true") View
+      tr
+        td #{e.requestID}
+        td #{e.user}
+        td #{e.feature}
+        td #{e.stakeholders}
+        td #{e.engagements}
+        td #{e.description}
+        td #{e.usageNumbers}
+        td #{e.createdAt}
+        td #{e.updatedAt}
+        td
+          a.btn.btn-primary.btn-lg.active(href="/0003:971.911.39.241/" + e.requestID + "/update", role="button", aria-passed="true") Update
   br
