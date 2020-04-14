@@ -8,21 +8,22 @@ block content
   p View the status of submitted tooling and process improvements within Fraudtech
 
   h3 Listings
-  table(class="table")
-    thead
-      tr
-        th(scope="col") Requester Email
-        th(scope="col") Feature
-        th(scope="col") Description
-        th(scope="col") Numbers Benefitted
-        th(scope="col") Submitted At
-    tbody
-      each e in enhancements
+  div(class="table-responsive")
+    table(class="table")
+      thead
         tr
-          td #{e.user}
-          td #{e.feature}
-          td #{e.description}
-          td #{e.usageNumbers}
-          td #{e.createdAt}
+          th(scope="col") Requester Email
+          th(scope="col") Feature
+          th(scope="col") Description
+          th(scope="col") Numbers Benefitted
+          th(scope="col") Submitted At
+      tbody
+        each e in enhancements
+          tr
+            td #{e.user}
+            td #{e.feature}
+            td #{e.description}
+            td #{e.usageNumbers}
+            td #{e.createdAt}
   
   br

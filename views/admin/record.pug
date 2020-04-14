@@ -8,32 +8,33 @@ block content
   p Manage requests submitted for tooling and process improvements within Fraudtech
 
   div(class="float-right")
-    a.btn.btn-secondary.btn-lg.active(href="/0003:971.911.39.241/", role="button", aria-passed="true") View All
+    a.btn.btn-secondary.btn-lg.active(href=url, role="button", aria-passed="true") View All
   h3 Record
-  table(class="table")
-    thead
-      tr
-        th(scope="col") requestID
-        th(scope="col") user
-        th(scope="col") feature
-        th(scope="col") stakeholders
-        th(scope="col") engagements
-        th(scope="col") description
-        th(scope="col") usageNumbers
-        th(scope="col") createdAt
-        th(scope="col") updatedAt
-        th(scope="col") (options)
-    tbody
-      tr
-        td #{e.requestID}
-        td #{e.user}
-        td #{e.feature}
-        td #{e.stakeholders}
-        td #{e.engagements}
-        td #{e.description}
-        td #{e.usageNumbers}
-        td #{e.createdAt}
-        td #{e.updatedAt}
-        td
-          a.btn.btn-primary.btn-lg.active(href="/0003:971.911.39.241/" + e.requestID + "/update", role="button", aria-passed="true") Update
+  div(class="table-responsive")
+    table(class="table")
+      thead
+        tr
+          th(scope="col") requestID
+          th(scope="col") user
+          th(scope="col") feature
+          th(scope="col") stakeholders
+          th(scope="col") engagements
+          th(scope="col") description
+          th(scope="col") usageNumbers
+          th(scope="col") createdAt
+          th(scope="col") updatedAt
+          th(scope="col") (options)
+      tbody
+        tr
+          td #{e.requestID}
+          td #{e.user}
+          td #{e.feature}
+          td #{e.stakeholders}
+          td #{e.engagements}
+          td #{e.description}
+          td #{e.usageNumbers}
+          td #{e.createdAt}
+          td #{e.updatedAt}
+          td
+            a.btn.btn-primary.btn-lg.active(href=url + e.requestID + "/update", role="button", aria-passed="true") Update
   br
