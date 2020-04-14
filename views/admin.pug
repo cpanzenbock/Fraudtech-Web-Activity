@@ -1,0 +1,35 @@
+extends common/layout_wide
+
+block content
+
+  div(class="d-flex justify-content-center")
+    h1= title
+  h2 Status Manager
+  p Manage requests submitted for tooling and process improvements within Fraudtech
+
+  h3 Listings
+  table(class="table")
+    thead
+      tr
+        th(scope="col") requestID
+        th(scope="col") user
+        th(scope="col") feature
+        th(scope="col") stakeholders
+        th(scope="col") engagements
+        th(scope="col") description
+        th(scope="col") usageNumbers
+        th(scope="col") createdAt
+        th(scope="col") updatedAt
+    tbody
+      each e in enhancements
+        tr
+          td #{e.requestID}
+          td #{e.user}
+          td #{e.feature}
+          td #{e.stakeholders}
+          td #{e.engagements}
+          td #{e.description}
+          td #{e.usageNumbers}
+          td #{e.createdAt}
+          td #{e.updatedAt}
+  br
