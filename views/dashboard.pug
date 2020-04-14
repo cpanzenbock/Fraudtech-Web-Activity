@@ -7,11 +7,22 @@ block content
   h2 Status Tracker
   p View the status of submitted tooling and process improvements within Fraudtech
 
-  if enhancements
-    h3 Listings
-    each e in enhancements
-      li #{e.user}
-  else
-    h3 No Listings Found
+  h3 Listings
+  table(class="table")
+    thead
+      tr
+        th(scope="col") Requester Email
+        th(scope="col") Feature
+        th(scope="col") Description
+        th(scope="col") Numbers Benefitted
+        th(scope="col") Submitted At
+    tbody
+      each e in enhancements
+        tr
+          td #{e.user}
+          td #{e.feature}
+          td #{e.description}
+          td #{e.usageNumbers}
+          td #{e.createdAt}
   
   br
