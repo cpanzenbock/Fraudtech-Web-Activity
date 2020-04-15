@@ -3,7 +3,7 @@ var fs = require('fs')
 const models = require('../models')
 
 exports.getLanding = function(req, res, next) {
-  res.render('landing', { title: 'Enhancement Requests' });
+  return res.render('landing', { title: 'Enhancement Requests' });
 }
 
 exports.submitEnhancement = function(req, res, next) {
