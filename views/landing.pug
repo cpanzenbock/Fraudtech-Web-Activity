@@ -1,4 +1,4 @@
-extends layout
+extends common/layout
 
 block content
 
@@ -6,28 +6,58 @@ block content
     h1= title
   h2 Submit New
   p Make requests for tooling and process improvements within Fraudtech
-  form(action="/", method="POST")
+  form(action=url, method="POST")
+    
+    //- Field 1
     label(for="logon") Enter logon email
     br
-    input(class="form-control", name="logon", id="logon", type="email", placeholder="user@servicesaustralia.com.au", required)
+    if prefill
+      input.form-control(name="logon", id="logon", type="email", placeholder="user@servicesaustralia.com.au", value=prefill.user, required)
+    else
+      
+      input.form-control(name="logon", id="logon", type="email", placeholder="user@servicesaustralia.com.au", required)
+
     br
+      
+    //- Field 2
     label(for="sel1") What needs enhancing?
-    select(id="sel1", name="sel1" class="form-control", required)
-      option(value="", disabled, selected) Please choose a tool/process...
-      option Awesome Macro Tool
-      option Super Cool Web Tool
-      option General Configurations
+    if prefill
+      input.form-control(id="sel1", name="sel1", required, placeholder="Choose a tool/process...",  value=prefill.feature)
+    else
+      
+      select.form-control(id="sel1", name="sel1", required)
+        option(value="", disabled, selected) Please choose a tool/process...
+        option Awesome Macro Tool
+        option Super Cool Web Tool
+        option General Configurations
+        
     br
-    textarea(id="describe", name="describe", rows="10", class="form-control" placeholder="Please describe the enhancement", required)
+      
+    //- Field 3
+    if prefill
+      textarea.form-control(id="describe", name="describe", rows="10", placeholder="Please describe the enhancement...", required) #{prefill.description}
+    else
+      
+      textarea.form-control(id="describe", name="describe", rows="10", placeholder="Please describe the enhancement...", required)
     br
+      
+    //- Field 4
     label(for="quantity") How many people will benefit from this enhancement?
     br
-    input(class="form-control", type="number", id="quantity", name="quantity", min="1", max="100", required)
+    if prefill
+      input.form-control(type="number", id="quantity", name="quantity", value=prefill.usageNumbers, min="1", max="100", required)
+    else
+      
+      input.form-control(type="number", id="quantity", name="quantity", min="1", max="100", required)
     br
+      
+    //- Field 5
     label Please attach any supporting documents
     br
-    input(class="form-control-file", name="attachment", type="file", maxlength=50 allow="text/*")
+    input.form-control-file(name="attachment", type="file", maxlength=50, allow="text/*")
     br
+      
+    //- Submit
     div(class="d-flex justify-content-center")
       button(class="btn btn-primary", type="submit") Submit
     br

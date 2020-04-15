@@ -1,7 +1,11 @@
 const models = require('../models')
 
 exports.getDash = function(req, res, next) {
-  models.request.findAll().then(enhancements => {
+  return models.request.findAll({
+    order: [
+      ['createdAt', 'DESC'],
+    ],
+  }).then(enhancements => {
     /*
     if (enhancements) {
       enhancements.forEach((e) => {
