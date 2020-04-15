@@ -37,4 +37,7 @@ block content
           td #{e.updatedAt}
           td
             a.btn.btn-primary.btn-lg.active(href=url + e.requestID + "/update", role="button", aria-passed="true") Update
+            |
+            form(action=url + e.requestID + "/delete", method="POST")
+              button.btn.btn-danger.btn-lg.active(name="delete", type="submit") Delete
   br

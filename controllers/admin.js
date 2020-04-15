@@ -1,9 +1,9 @@
 const models = require('../models')
-const secret_url = "/971.911.39.241/";
+const secret_url = '/971.911.39.241/';
 exports.secret_url = secret_url;
 
 exports.getInterface = function(req, res, next) {
-  models.request.findAll({
+  return models.request.findAll({
     order: [
       ['createdAt', 'DESC'],
     ],
@@ -13,7 +13,7 @@ exports.getInterface = function(req, res, next) {
 }
 
 exports.view = function(req, res, next) {
-  models.request.findOne({
+  return models.request.findOne({
     where : {
       requestID : req.params.reqID
     },
@@ -24,7 +24,7 @@ exports.view = function(req, res, next) {
 
 exports.showUpdate = function(req, res, next) {
   let reqID = req.params.reqID;
-  models.request.findOne({
+  return models.request.findOne({
     where : {
       requestID : req.params.reqID
     },
@@ -37,7 +37,7 @@ exports.showUpdate = function(req, res, next) {
 exports.update = function(req, res, next) {
   let reqID = req.params.reqID;
 
-  models.request.update({
+  return models.request.update({
     user: req.body.logon,
     feature: req.body.sel1,
     description: req.body.describe,
@@ -48,5 +48,17 @@ exports.update = function(req, res, next) {
     }
   }).then(result => {
     res.redirect(secret_url + reqID);
+  });
+}
+
+exports.delete = function(req, res, next) {
+  let reqID = req.params.reqID;
+
+  return models.request.destroy({
+    where: {
+      requestID: reqID
+    }
+  }).then(result => {
+    res.redirect(secret_url);
   });
 }

@@ -1,7 +1,7 @@
 const models = require('../models')
 
 exports.getDash = function(req, res, next) {
-  models.request.findAll({
+  return models.request.findAll({
     order: [
       ['createdAt', 'DESC'],
     ],
