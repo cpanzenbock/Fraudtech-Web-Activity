@@ -4,26 +4,80 @@ block content
 
   div(class="d-flex justify-content-center")
     h1= title
-  h2 Status Tracker
+  h2 Status Dashboard
   p View the status of submitted tooling and process improvements within Fraudtech
 
-  h3 Listings
-  div(class="table-responsive")
-    table(class="table")
-      thead
-        tr
-          th(scope="col") Requester Email
-          th(scope="col") Feature
-          th(scope="col") Description
-          th(scope="col") Numbers Benefitted
-          th(scope="col") Submitted At
-      tbody
-        each e in enhancements
-          tr
-            td #{e.user}
-            td #{e.feature}
-            td #{e.description}
-            td #{e.usageNumbers}
-            td #{e.createdAt}
-  
+  form(action="/status", method="POST")
+    div.container-fluid
+      div.row
+        div.col-sm
+          label(for="mon1") Left Panel:
+          br
+          select(id="mon1", name="mon1", required)
+            option(value="0119") Jan '19
+            option(value="0219") Feb '19
+            option(value="0319") Mar '19
+            option(value="0419") Apr '19
+            option(value="0519") May '19
+            option(value="0619") Jun '19
+            option(value="0719") Jul '19
+            option(value="0819") Aug '19
+            option(value="0919") Sep '19
+            option(value="1019") Oct '19
+            option(value="1119") Nov '19
+            option(value="1219") Dec '19
+            option(value="0120") Jan '20
+            option(value="0220") Feb '20
+            option(value="0320") Mar '20
+            option(value="0420", selected) Apr '20
+            option(disabled, selected, value="") Choose a month...
+        div.col-sm
+          label(for="mon2") Right Panel:
+          br
+          select(id="mon2", name="mon2", required)
+            option(value="0119") Jan '19
+            option(value="0219") Feb '19
+            option(value="0319") Mar '19
+            option(value="0419") Apr '19
+            option(value="0519") May '19
+            option(value="0619") Jun '19
+            option(value="0719") Jul '19
+            option(value="0819") Aug '19
+            option(value="0919") Sep '19
+            option(value="1019") Oct '19
+            option(value="1119") Nov '19
+            option(value="1219") Dec '19
+            option(value="0120") Jan '20
+            option(value="0220") Feb '20
+            option(value="0320") Mar '20
+            option(value="0420") Apr '20
+            option(selected, value="No") None
+        div.col-sm
+          button.btn.btn-info.btn-lg.active(name="go", type="submit") Go
+    br
+    div.container-fluid
+      div.row
+        div.col-sm
+          table.table
+            thead
+              tr
+                th Feature
+                th Request Count
+            tbody
+              each s1 in stats1 
+                tr
+                  td= s1.feature
+                  td= s1.value
+        if stats2
+          div.col-sm
+            table.table
+              thead
+                tr
+                  th Feature
+                  th Request Count
+              tbody
+                each s2 in stats2
+                  tr
+                    td= s2.feature
+                    td= s2.value
   br

@@ -26,7 +26,7 @@ exports.showUpdate = function(req, res, next) {
   let reqID = req.params.reqID;
   return models.request.findOne({
     where : {
-      requestID : req.params.reqID
+      requestID : reqID
     },
   }).then(enhancement => {
     res.render('landing', { title: 'Enhancement Requests', prefill: enhancement, url: secret_url + reqID + '/update' });
