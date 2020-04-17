@@ -1,0 +1,45 @@
+extends common/layout
+
+block content
+
+  div(class="d-flex justify-content-center")
+    h1= title
+  h2 Submit New
+  p Make requests for tooling and process improvements within Fraudtech
+  form(action=url, method="POST")
+
+    //- Field - DB: user | Form: logon
+    input(type="hidden", id="logon", name="logon", value=e.logon)
+
+    //- Field - DB: feature | Form: sel1
+    label(for="sel1") What needs enhancing?
+    if prefill
+      input.form-control(id="sel1", name="sel1", required, placeholder="Choose a tool/process...",  value=prefill.feature)
+    else
+      
+      select.form-control(id="sel1", name="sel1", required)
+        option(value="", disabled, selected) Please choose a tool/process...
+        option Awesome Macro Tool
+        option Super Cool Web Tool
+        option General Configurations
+        
+    br
+      
+    //- Field - DB: usageNumbers | Form: quantity
+    label(for="quantity") How many people will benefit from this enhancement?
+    br
+    if prefill
+      input.form-control(type="number", id="quantity", name="quantity", value=prefill.usageNumbers, min="1", max="100", required)
+    else
+      
+      input.form-control(type="number", id="quantity", name="quantity", min="1", max="100", required)
+    br
+      
+    //- Field - DB: description | Form: describe
+
+    //- Field - DB: NA | Form: attachment
+    
+    //- Next
+    div(class="d-flex justify-content-center")
+      button(class="btn btn-primary", type="submit") Next
+    br

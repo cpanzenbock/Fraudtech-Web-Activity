@@ -3,7 +3,25 @@ var fs = require('fs')
 const models = require('../models')
 
 exports.getLanding = function(req, res, next) {
-  return res.render('landing', { title: 'Enhancement Requests' });
+  return res.render('landing', { title: 'Enhancement Requests', url: '/2' });
+}
+
+exports.getNextPage = function(req, res, next) {
+return res.render('page2', { title: 'Enhancement Requests', e: req.body, url: '/3'});
+}
+
+exports.getLastPage = function(req, res, next) {
+  return res.render('page3', { title: 'Enhancement Requests', e: req.body, url: '/submit'});
+}
+
+exports.nextPage = function(req, res, next) {
+  // Serve the next page of the form retaining previous data
+  return res.redirect('/2');
+}
+
+exports.lastPage = function(req, res, next) {
+  // Serve the last page of the form retaining previous data
+  return res.redirect('/3');
 }
 
 exports.submitEnhancement = function(req, res, next) {
